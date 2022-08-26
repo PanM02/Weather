@@ -1,0 +1,12 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Orba\WeatherApiModule\Block\Widget\WeatherWidget" id="weather_widget">
+        <label>Weather Widget</label>
+        <description>This is a weather widget</description>
+        <parameters>
+            <parameter name="location" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label>Location</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

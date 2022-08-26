@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="orba_weather_api_module_weather_listing_data_source" xsi:type="string">Orba\WeatherApiModule\Model\ResourceModel\Weather\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<preference for="Orba\WeatherApiModule\Api\WeatherRepositoryInterface" type="Orba\WeatherApiModule\Model\WeatherRepository"/>
+	<preference for="Orba\WeatherApiModule\Api\Data\WeatherInterface" type="Orba\WeatherApiModule\Model\Weather"/>
+	<preference for="Orba\WeatherApiModule\Api\Data\WeatherSearchResultInterface" type="Orba\WeatherApiModule\Model\WeatherSearchResult"/>
+    <type name="Orba\WeatherApiModule\Model\Import\Sources">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="delete" xsi:type="object">Magento\InventoryImportExport\Model\Import\Command\Delete</item>
+                <item name="append" xsi:type="object">Magento\InventoryImportExport\Model\Import\Command\Append</item>
+                <item name="replace" xsi:type="object">Magento\InventoryImportExport\Model\Import\Command\Replace</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

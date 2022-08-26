@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="OrbaWeatherGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Orba\WeatherApiModule\Model\ResourceModel\Weather\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">OrbaWeatherGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="OrbaWeatherGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Orba\WeatherApiModule\Model\ResourceModel\Weather\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">orba_weather_api_module_weather</argument>
+            <argument name="eventPrefix" xsi:type="string">orba_weather_api_module_weather_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">orba_weather_api_module_weather_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Orba\WeatherApiModule\Model\ResourceModel\Weather</argument>
+        </arguments>
+    </type>
+</config>

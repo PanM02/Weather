@@ -1,0 +1,45 @@
+<?php
+declare(strict_types=1);
+
+namespace Orba\WeatherApiModule\Model\Import\Command;
+
+use Magento\InventoryApi\Api\SourceItemsSaveInterface;
+use Magento\InventoryImportExport\Model\Import\SourceItemConvert;
+use Magento\InventoryImportExport\Model\Import\Command\CommandInterface;
+
+/**
+ * @inheritdoc
+ */
+class Append implements CommandInterface
+{
+    /**
+     * @var SourceItemConvert
+     */
+    private $sourceItemConvert;
+
+    /**
+     * @var SourceItemsSaveInterface
+     */
+    private $sourceItemsSave;
+
+    /**
+     * @param SourceItemConvert $sourceItemConvert
+     * @param SourceItemsSaveInterface $sourceItemsSave
+     */
+    public function __construct(
+        SourceItemConvert $sourceItemConvert,
+        SourceItemsSaveInterface $sourceItemsSave
+    ) {
+        $this->sourceItemConvert = $sourceItemConvert;
+        $this->sourceItemsSave = $sourceItemsSave;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function execute(array $bunch)
+    {
+        $sourceItems = $this->sourceItemConvert->convert($bunch);
+        $this->sourceItemsSave->execute($sourceItems);
+    }
+}

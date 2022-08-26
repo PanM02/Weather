@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page layout="3column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+
+        <referenceContainer name="footer">
+            <block class="Orba\WeatherApiModule\Block\Widget\WeatherWidget"
+                   name="some.block.name"
+                   template="Orba_WeatherApiModule::widget/weather.phtml"
+                   after="footer_links"
+            />
+        </referenceContainer>
+    </body>
+</page>

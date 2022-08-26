@@ -1,0 +1,19 @@
+<?php
+/** @var $block Orba\WeatherApiModule\Block\Widget\WeatherWidget */
+?>
+<div id="weather">
+  <h3 id="weather_api_text"><?= $block->escapeHtml($block->getData('text')) ?></h3>
+  <h3 id="weather_api_temp"><?= $block->escapeHtml($block->getData('temp')) ?>°C</h3>
+</div>
+
+<script >
+    var container=document.getElementById('weather');
+    var element=document.getElementById('weather_api_text');
+     var value=element.innerHTML;
+
+     if(value == 'Sunny' || value=='Clear')
+        container.style.backgroundColor="blue";
+     else
+        container.style.backgroundColor="red";
+</script>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Orba_WeatherApiModule::WeatherTitle" title="Weather" translate="title" module="Orba_WeatherApiModule" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Orba_WeatherApiModule" resource="Orba_WeatherApiModule::weather"/>
+        <add id="Orba_WeatherApiModule::Weather" title="Weather" module="Orba_WeatherApiModule" sortOrder="10" parent="Orba_WeatherApiModule::WeatherTitle" action="orba_weather_api_module/weather" resource="Orba_WeatherApiModule::weather"/>
+    </menu>
+</config>

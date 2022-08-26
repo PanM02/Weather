@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/crontab.xsd">
+    <group id="default">
+        <job name="orba_weather_api_module_get_weather" instance="Orba\WeatherApiModule\Cron\GetWeather" method="execute">
+            <schedule>*/10 * * * *</schedule>
+        </job>
+        <job name="orba_weather_api_module_delete_obsolete_weather" instance="Orba\WeatherApiModule\Cron\DeleteObsoleteWeather" method="execute">
+            <schedule>0 0 * * *</schedule>
+        </job>
+    </group>
+</config>

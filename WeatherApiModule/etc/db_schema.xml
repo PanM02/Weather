@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="orba_weather_api_module_weather" resource="default" engine="innodb" comment="Weather Table">
+		<index referenceId="FTI_orba_weather_api_module_weather" indexType="fulltext">
+			<column name="condition"/>
+		</index>
+		<column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Weather Id"/>
+		<column xsi:type="varchar" length="20" nullable="false" name="condition" comment="Weather Condition"/>
+		<column xsi:type="datetime" nullable="false" name="date" comment="Weather Date"/>
+		<column xsi:type="int" padding="10" unsigned="false" nullable="false" name="temperature" comment="Weather Temperature"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="entity_id"/>
+		</constraint>
+	</table>
+</schema>
